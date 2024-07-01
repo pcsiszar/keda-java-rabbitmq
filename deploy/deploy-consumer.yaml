@@ -23,12 +23,17 @@ spec:
     spec:
       containers:
         - name: rabbitmq-consumer
-          image: ghcr.io/kedacore/rabbitmq-client:v1.0
+          image: docker.io/pcsiszar/receive:latest
           imagePullPolicy: Always
-          command:
-            - receive
-          args:
-            - "amqp://user:PASSWORD@rabbitmq.default.svc.cluster.local:5672"
+          ports:
+            - containerPort: 8081
+          env:
+            - name: RABBIT_HOST
+              value: rabbitmq.default.svc.cluster.local
+            - name: RABBIT_USER
+              value: user
+            - name: RABBIT_PASSWORD
+              value: PASSWORD
 ---
 apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
@@ -40,14 +45,21 @@ spec:
     name: rabbitmq-consumer
   pollingInterval: 5 # Optional. Default: 30 seconds
   cooldownPeriod: 30 # Optional. Default: 300 seconds
-  maxReplicaCount: 30 # Optional. Default: 100
+  maxReplicaCount: 15 # Optional. Default: 100
+  minReplicaCount: 0
   triggers:
     - type: rabbitmq
       metadata:
+        host: http://user:PASSWORD@rabbitmq.default.svc.cluster.local:15672
         queueName: hello
-        queueLength: "5"
-      authenticationRef:
-        name: rabbitmq-consumer-trigger
+        mode: QueueLength
+        value: "5"
+    - type: rabbitmq
+      metadata:
+        host: http://user:PASSWORD@rabbitmq.default.svc.cluster.local:15672
+        queueName: hello
+        mode: MessageRate
+        value: "1"
 ---
 apiVersion: keda.sh/v1alpha1
 kind: TriggerAuthentication
