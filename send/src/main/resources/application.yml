@@ -1,0 +1,7 @@
+spring:
+  application.name: send
+
+  rabbitmq:
+    host: ${RABBIT_HOST:localhost}
+    username: ${RABBIT_USER:user}
+    password: ${RABBIT_PASSWORD:PASSWORD}

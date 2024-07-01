@@ -37,3 +37,20 @@ w
 G.idea/sonarlint/issuestore/8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d,b/4/b4a0b63ce8560bbc5de0f9995c20cc861dc2adb3
 S
 #.idea/sonarlint/issuestore/index.pb,9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
+:
+
+.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
+?
+receive/HELP.md,9/e/9ef35526ab84c2d76905cf373a4b97e8897f5c60
+@
+receive/mvnw.cmd,c/7/c7cd16c6430b0fa00f34e323c536eb5e8dab828d
+<
+receive/mvnw,6/e/6ee60f4e128c3c090a43a5b9b834b907df6a7d48
+{
+Kreceive/src/test/java/org/pcsiszar/kjr/receive/ReceiveApplicationTests.java,9/d/9d60cf27f5efa116e96169d62f5c85b906aea840
+<
+send/HELP.md,4/f/4f65bcbb2ce664464c0becb1e186457e033bbfd9
+=
+send/mvnw.cmd,b/2/b2b97266d0ded72344f56bfccfb19f9d213e8f57
+9
+	send/mvnw,a/4/a467f4261a5f8114f83fe3d6997dc6a72be3924d

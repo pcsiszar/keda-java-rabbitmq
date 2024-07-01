@@ -1,0 +1,10 @@
+spring:
+  application.name: receive
+
+  rabbitmq:
+    host: ${RABBIT_HOST:localhost}
+    username: ${RABBIT_USER:user}
+    password: ${RABBIT_PASSWORD:PASSWORD}
+
+server:
+  port: 8081
